@@ -1,0 +1,369 @@
+/* Google Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: #11101d;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+.sidebar.open {
+  width: 250px;
+}
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.icon {
+  width: 50px; /* Sesuaikan ukuran lebar yang diinginkan */
+  height: auto; /* Sesuaikan ukuran tinggi yang diinginkan */
+}
+
+.sidebar .logo-details .logo_name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+.sidebar i {
+  color: #fff;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+.sidebar .nav {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar .nav li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+.sidebar .nav li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(40% + 5px); /* Jarak dari sisi kanan saat sidebar terbuka */
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar.open .nav li .tooltip {
+  left: calc(100% + 15px); /* Jarak dari sisi kanan saat sidebar terbuka */
+}
+
+.sidebar .nav li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+/* CSS untuk submenu */
+.dropdown-container {
+  display: none;
+  position: absolute;
+  top: 100%; /* Menggeser submenu ke bawah elemen "Transaksi" */
+  left: 0;
+  padding: 10px; /* Geser submenu ke kiri sejauh 100% dari lebar sidenav */
+  border-radius: 20px;
+  width: auto; /* Lebar submenu */
+  height: 50px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+.transaksiLink .submenu:hover {
+  color: black;
+}
+
+.sidebar.open .dropdown-container {
+  display: block;
+  left: 0; /* Geser submenu ke kiri sejauh 100% dari lebar sidenav */
+  opacity: 1;
+}
+.dropdown .dropdown-toggle::after {
+  display: none;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "none";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.submenu {
+  color: #fff;
+  position: relative; /* Menggunakan posisi absolut untuk submenu */
+  left: 50%;
+  top: 0; /* Menentukan posisi vertikal submenu */
+  margin-left: 0; /* Jarak antara submenu dengan menu utama */
+  display: none;
+}
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #1d1b31;
+  color: #fff;
+}
+.sidebar.open .bx-search:hover {
+  background: #1d1b31;
+  color: #fff;
+}
+.sidebar .bx-search:hover {
+  background: #fff;
+  color: #11101d;
+}
+.sidebar li a {
+  display: flex;
+  width: 35%; /* Menggunakan width: auto; agar lebar mengikuti konten di dalamnya */
+  border-radius: 10px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #11101d;
+  margin-top: 5px;
+  margin-right: 1%; /* Sesuaikan dengan jarak yang diinginkan */
+}
+.sidebar li .submenu {
+  width: 0%;
+  color: #11101d;
+  font-weight: bold;
+}
+.sidebar.open li .submenu {
+  width: 0%;
+  color: #fff;
+}
+
+.sidebar.open li a {
+  width: 100%;
+}
+.sidebar li a:hover {
+  background: #fff;
+}
+.sidebar li a .links_name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+.sidebar li.profile {
+  position: absolute;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: #1d1b31;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.sidebar.open li.profile {
+  width: 250px;
+}
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.sidebar li img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  white-space: nowrap;
+}
+.sidebar li.profile .job {
+  font-size: 12px;
+}
+.sidebar .profile #log_out {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #1d1b31;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+.sidebar.open .profile #log_out {
+  width: 50px;
+  background: none;
+}
+.home-section {
+  position: relative;
+  background: #e4e9f7;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+.home-section .text {
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+}
+
+/* Gaya tombol sekunder */
+.btn.scndry {
+  background-color: transparent; /* Warna latar belakang tombol */
+  color: #fff; /* Warna teks tombol */
+  border: none; /* Hilangkan batas tombol */
+  padding: 0; /* Hapus padding */
+  cursor: pointer; /* Tampilan cursor saat diarahkan ke tombol */
+  position: relative; /* Atur posisi relatif */
+  overflow: hidden; /* Atur overflow ke hidden */
+  display: inline-block; /* Tampilan sebagai elemen inline-block */
+}
+
+/* Panah ke bawah menggunakan karakter Unicode (\25BC adalah kode karakter Unicode untuk panah ke bawah) */
+.btn.scndry::after {
+  content: "\25BC"; /*Tambahkan panah ke bawah sebagai konten pseudo-element*/
+  font-size: 12px; /* Ukuran font panah */
+  margin-left: 5px; /* Jarak antara teks tombol dan panah */
+}
+
+/* Efek hover saat mouse diarahkan ke tombol */
+.btn.scndry:hover {
+  text-decoration: underline; /* Tambahkan garis bawah saat dihover */
+}
+.btn.scndry:hover::after {
+  color: #1d1b31; /* Ganti warna panah saat dihover */
+}
+
+/* print btn */
+#btnPrint {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#btnPrint:hover {
+  background-color: #466e9a;
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  table {
+    visibility: visible;
+  }
+}
