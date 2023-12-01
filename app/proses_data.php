@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menyimpan data ke tabel "buku"
     $sql = "INSERT INTO buku (kategori, rak, isbn, judul, jumlah, pengarang, penerbit) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("ssisiss", $kategori, $rak, $isbn, $judul, $jumlah, $pengarang, $penerbit);
+    $stmt->bind_param("ssssiss", $kategori, $rak, $isbn, $judul, $jumlah, $pengarang, $penerbit);
 
     if ($stmt->execute()) {
         echo "";
@@ -35,4 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
 }
-?>

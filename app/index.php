@@ -80,11 +80,13 @@
     <!-- start content -->
     <section class="home-section">
         <div class=" text">Dashboard</div>
-        <!-- feature search -->
+
+        <!-- feature search
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Cari..." />
             <ul id="search-results"></ul>
-        </div>
+        </div> -->
+
         <div class="cards">
             <?php
             // Sisipkan hasil dari skrip PHP eksternal

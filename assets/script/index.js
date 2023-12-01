@@ -58,20 +58,4 @@ function printReport() {
 document.getElementById("btnPrint").addEventListener("click", printReport);
 
 
-// connect fetch api
-fetch("http://localhost:8000/docs#/")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Lakukan sesuatu dengan data yang diterima
-  })
-  .catch((error) => {
-    console.error("Ada kesalahan:", error);
-  });
-//==============================
-//end connect fetch api
-//==============================
+

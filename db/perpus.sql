@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 02:49 PM
+-- Generation Time: Oct 31, 2023 at 03:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,7 +43,8 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `judul`, `kategori`, `pengarang`, `penerbit`, `rak`, `isbn`, `jumlah`) VALUES
-(7, 'asd', 'ipa', 'dddd', 'dddd', '1', 13231, 465);
+(1, 'GEOGRAFI', 'Ilmu Pengetahuan Sosial', 'Yusinto', 'Erlangga', '1', 2147483647, 2),
+(3, 'Sosiologi', 'IPS', 'bagas', 'erlangga', '1', 12, 8);
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `pinjaman` (
   `judul` varchar(50) DEFAULT NULL,
   `tanggal_pinjam` varchar(50) DEFAULT NULL,
   `tanggal_kembali` varchar(50) DEFAULT NULL,
-  `jumlah` int(11) DEFAULT NULL,
+  `jumlah` varchar(15) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -78,8 +79,7 @@ CREATE TABLE `pinjaman` (
 --
 
 INSERT INTO `pinjaman` (`id`, `kelas`, `nama`, `judul`, `tanggal_pinjam`, `tanggal_kembali`, `jumlah`, `status`) VALUES
-(1, '2', 'qq', 'asd', '2023-10-30', '2023-10-31', 5, 1),
-(2, '1', 'qw', 'asd', '2023-10-30', '2023-10-31', 5, 1);
+(2, '10', 'bagas', 'Sosiologi', '2023-10-31', '2023-11-01', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pinjaman`
