@@ -33,13 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $update_query = "UPDATE buku SET Jumlah = Jumlah - $jumlah_pinjam WHERE Judul = '$judul'";
             $conn->query($update_query);
 
-            echo "Data berhasil disimpan!";
-            header("Location: peminjaman.php");
+            echo '<script>alert("Data Berhasil Disimpan"); 
+    window.location.href = "peminjaman.php";</script>';
         } else {
             echo "Error: " . $insert_query . "<br>" . $conn->error;
         }
     } else {
-        echo "Buku tidak tersedia dalam database. Silakan cek kembali.";
+        // Jika judul buku tidak ditemukan, tampilkan pesan notifikasi popup
+    echo '<script>alert("Buku tidak ditemukan dalam database."); 
+    window.location.href = "peminjaman.php";</script>';
     }
 
     // Tutup koneksi ke database

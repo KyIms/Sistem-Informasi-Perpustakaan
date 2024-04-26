@@ -52,6 +52,7 @@
                 <span class="tooltip">Daftar Buku</span>
             </li>
 
+            <!-- sidebar Laporan -->
             <div class="transaksiLink">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">
@@ -66,14 +67,15 @@
                 </li>
             </div>
 
-            <li class="transaksiItem">
+            <!-- sidebar transaksi & submenu -->
+
+            <li>
                 <a href="peminjaman.php">
                     <i class="bx bx-money"></i>
                     <span class="links_name">Transaksi</span>
                 </a>
                 <span class="tooltip">Transaksi</span>
             </li>
-
 
 
 
@@ -97,7 +99,7 @@
 
     <!-- start content -->
     <section class="home-section">
-        <div class="text">Laporan</div>
+        <div class="text">Laporan Kunjungan</div>
 
         <div class="row">
             <div class="col-12 col-xl-12 mb-4 mblg-0">
@@ -114,17 +116,16 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Nama</th>
+                                        <th>Kelas</th>
                                         <th>Judul Buku</th>
-                                        <th>Tanggal Pinjam</th>
-                                        <th>Tanggal Kembali</th>
-                                        <th>Jumlah</th>
-                                        <th>Status</th>
+                                        <th>Tanggal Kunjungan</th>
+                                        <th>Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     // Sisipkan hasil dari skrip PHP eksternal
-                                    include("proses_laporan.php");
+                                    include("proses_laporanKunjungan.php");
                                     ?>
                                 </tbody>
                             </table>

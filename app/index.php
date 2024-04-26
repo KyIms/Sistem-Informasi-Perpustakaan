@@ -13,14 +13,13 @@
 
 <body>
     <!-- sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <div class="logo-details">
             <img class="icon" src="../assets/img/book.png" alt="profileImg" />
             <div class="logo_name">Perpus</div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
-        <!-- feature search -->
-        <ul class="nav-list">
+        <ul class="nav flex-column">
             <!-- sidebar dashboard -->
             <li>
                 <a href="index.php">
@@ -38,32 +37,35 @@
                 </a>
                 <span class="tooltip">Data</span>
             </li>
-
-            <!-- sidebar Laporan -->
             <li>
-                <a href="laporan.php">
-                    <i class="bx bxs-report"></i>
-                    <span class="links_name">Laporan</span>
+                <a href="buku.php">
+                    <i class="bx bx-book"></i>
+                    <span class="links_name">Daftar Buku</span>
                 </a>
-                <span class="tooltip">Laporan</span>
+                <span class="tooltip">Daftar Buku</span>
             </li>
 
-            <!-- sidebar transaksi & submenu -->
             <div class="transaksiLink">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">
-                        <i class="bx bx-money"></i>
-                        <span class="links_name">Transaksi</span>
-                        <button class="btn scndry"></button>
+                        <i class="bx bxs-report"></i>
+                        <span class="links_name">Laporan</span>
                     </a>
-                    <span class="tooltip">Transaksi</span>
+                    <span class="tooltip">Laporan</span>
                     <div class="dropdown-container">
-                        <a class="submenu" href="peminjaman.php">Peminjaman</a>
-                        <a class="submenu" href="pengembalian.php">Pengembalian</a>
+                        <a class="submenu" href="laporan.php">Pengembalian</a>
+                        <a class="submenu" href="laporan_kunjungan.php">Kunjungan</a>
                     </div>
                 </li>
             </div>
 
+            <li class="transaksiItem">
+                <a href="peminjaman.php">
+                    <i class="bx bx-money"></i>
+                    <span class="links_name">Transaksi</span>
+                </a>
+                <span class="tooltip">Transaksi</span>
+            </li>
             <!-- sidebar profil -->
             <li class="profile">
                 <div class="profile-details">
@@ -72,17 +74,21 @@
                         <div class="job">Petugas</div>
                     </div>
                 </div>
-                <i class="bx bx-log-out" id="log_out" onclick="logout.php"><a href="logout.php"></a></i>
+                <a href="login.php" id="log_out">
+                    <!-- Menggunakan tag <a> agar dapat diklik -->
+                    <i class="bx bx-log-out"></i>
+                </a>
             </li>
         </ul>
+    </div>
     </div>
     <!-- end sidebar -->
     <!-- start content -->
     <section class="home-section">
         <div class=" text">Dashboard</div>
 
-        <!-- feature search
-        <div class="search-container">
+        <!-- feature search -->
+        <!-- <div class="search-container">
             <input type="text" id="search-input" placeholder="Cari..." />
             <ul id="search-results"></ul>
         </div> -->
@@ -122,11 +128,56 @@
                 <p class="card-title">Pengembalian</p>
                 <p class="card-data">
             </div>
+            <div class="card">
+                <div class="card-image">
+                    <p class="total">
+                        <?php echo $kunjungan; ?>
+                        <!-- Menampilkan jumlah total buku di dalam card-image -->
+                    </p>
+                </div>
+                <p class=" card-title">Kunjungan</p>
+            </div>
 
         </div>
-    </section>
-    <!-- end content -->
-    <script src="../assets/script/index.js" async defer></script>
+        <br>
+        <section class="home-section">
+            <div class="data-content">
+                <form action="proses_kunjungan.php" method="post" autocomplete="off">
+                    <div class="div-kiri">
+                        <br /><br />
+                        <label for="rak">Nama</label>
+                        <input type="text" id="nama" name="nama" required />
+                        <br /><br />
+                        <label for="judul">Judul Buku:</label>
+                        <input type="text" id="judul" name="Judul" required />
+                        <br /><br />
+                        <label for="jumlah">Kelas</label>
+                        <select id="kelas" name="kelas" required>
+                            <option value="">Pilih Kelas</option>
+                            <option value="-">-</option>
+                            <option value="kelas X">Kelas X</option>
+                            <option value="kelas XI">Kelas XI</option>
+                            <option value="kelas XII">Kelas XII</option>
+                        </select>
+                        <br /><br />
+                        <label for="pinjam">Tanggal Kunjungan</label>
+                        <input type="date" id="jumlah" name="tgl_pinjam" required />
+                        <br /><br />
+                        <label for="jumlah">Keterangan</label>
+                        <select id="staff_type" name="staff_type" required>
+                            <option value="">Pilih Keterangan</option>
+                            <option value="guru">Guru</option>
+                            <option value="staff">Staff</option>
+                            <option value="siswa">Siswa</option>
+                            <option value="umum">Umum</option>
+                        </select>
+                        <br /><br />
+                        <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </section>
+        <!-- end content -->
+        <script src="../assets/script/index.js" async defer></script>
 </body>
 
 </html>

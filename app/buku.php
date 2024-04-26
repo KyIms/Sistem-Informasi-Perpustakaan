@@ -43,9 +43,8 @@
                 </a>
                 <span class="tooltip">Data</span>
             </li>
-
             <li>
-                <a href="buku.php">
+                <a href="data.php">
                     <i class="bx bx-book"></i>
                     <span class="links_name">Daftar Buku</span>
                 </a>
@@ -97,7 +96,7 @@
 
     <!-- start content -->
     <section class="home-section">
-        <div class="text">Laporan</div>
+        <div class="text">Daftar Buku</div>
 
         <div class="row">
             <div class="col-12 col-xl-12 mb-4 mblg-0">
@@ -105,26 +104,24 @@
                 <div class="card">
                     <h5 class="Card-header list-group-item list-group-item-secondary"></h5>
                     <div class="card-body">
-                        <div>
-                            <button id="btnPrint">Cetak Laporan</button>
-                        </div>
                         <div class="table-responsive">
                             <table class="table" id="laporanTable" autocomplete="off">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Nama</th>
-                                        <th>Judul Buku</th>
-                                        <th>Tanggal Pinjam</th>
-                                        <th>Tanggal Kembali</th>
+                                        <th>Judul</th>
+                                        <th>Kategori</th>
+                                        <th>Pengarang</th>
+                                        <th>Penerbit</th>
+                                        <th>Rak</th>
+                                        <th>ISBN</th>
                                         <th>Jumlah</th>
-                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     // Sisipkan hasil dari skrip PHP eksternal
-                                    include("proses_laporan.php");
+                                    include("proses_buku.php");
                                     ?>
                                 </tbody>
                             </table>

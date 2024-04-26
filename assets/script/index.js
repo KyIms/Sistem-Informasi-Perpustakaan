@@ -57,5 +57,15 @@ function printReport() {
 // Menambahkan event listener untuk tombol cetak
 document.getElementById("btnPrint").addEventListener("click", printReport);
 
+// Temukan elemen link logout
+const logoutLink = document.getElementById("log_out");
 
+// Tambahkan event listener untuk klik pada link logout
+logoutLink.addEventListener("click", (event) => {
+  event.preventDefault(); // Menghentikan perilaku default dari link (misalnya, mengarah ke halaman baru)
 
+  // Lakukan proses logout di sini, misalnya:
+  // Menghapus token, membersihkan sesi, atau melakukan tindakan logout lainnya
+  // Contoh: Redirect ke halaman login
+  window.location.href = "login.php"; // Ganti 'halaman_login.html' dengan halaman login yang sesuai
+});

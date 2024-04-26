@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -40,6 +39,14 @@
                 <span class="tooltip">Data</span>
             </li>
 
+            <li>
+                <a href="buku.php">
+                    <i class="bx bx-book"></i>
+                    <span class="links_name">Daftar Buku</span>
+                </a>
+                <span class="tooltip">Daftar Buku</span>
+            </li>
+
             <!-- sidebar Laporan -->
             <li>
                 <a href="laporan.php">
@@ -73,7 +80,10 @@
                         <div class="job">Petugas</div>
                     </div>
                 </div>
-                <i class="bx bx-log-out" id="log_out"></i>
+                <a href="login.php" id="log_out">
+                    <!-- Menggunakan tag <a> agar dapat diklik -->
+                    <i class="bx bx-log-out"></i>
+                </a>
             </li>
         </ul>
     </div>
